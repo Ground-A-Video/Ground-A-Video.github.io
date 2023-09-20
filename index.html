@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Ground-A-Video</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+	    tex2jax: {
+	        inlineMath: [['$','$'], ['\\(','\\)']],
+	        processEscapes: true
+	    }
+	});
+    </script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="xtitle is-1 publication-title"><strong>Ground-A-Video</strong><br>: Zero-shot Grounded Video Editing using Text-to-image Diffusion Models</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a>Anonymous Authors</a>
+              </span>
+              <!-- <span class="author-block">
+                <a>Second Author</a><sup>*</sup>
+              </span> -->
+            </div>
+            <!-- Institution & Conference -->
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block">Institution Name<br>Conferance name and year</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+            </div> -->
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"class="external-link ">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+
+                <!-- Supplementary PDF link -->
+                <!-- <span class="link-block">
+                  <a href="static/pdfs/supplementary_material.pdf" target="_blank" class="external-link ">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span> -->
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/Ground-A-Video/Ground-A-Video" target="_blank" class="external-link ">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank" class="external-link ">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="hero teaser">
+<div class="is-max-desktop">
+<div class="marquee-wrapper">
+	<div class="container">
+		<div class="marquee-block">
+			<div class="marquee-inner to-left">
+				<span>
+					<div class="marquee-item">
+            <img src="static/gifs/rabbit_watermelon/input.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              "A <b style="color:red;">rabbit</b> is eating a <b style="color:red;">watermelon</b> on the <b style="color:red;">table</b>."
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/rabbit_watermelon/output1.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              <b style="color:red;">rabbit</b> &rarr; <b style="color:blue;">kangaroo</b> <br>
+              <b style="color:red;">watermelon</b> &rarr; <b style="color:blue;">avocado</b> <br>
+              <b style="color:red;">table</b> &rarr; <b style="color:blue;">snow</b>
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/rabbit_watermelon/output2.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              <b style="color:red;">rabbit</b> &rarr; <b style="color:blue;">squirrel</b> <br>
+              <b style="color:red;">watermelon</b> &rarr; <b style="color:blue;">orange</b> <br>
+              <b style="color:red;">table</b> &rarr; <b style="color:blue;">grass</b> <br>
+              &plus; <b style="color:green;">under the aurora</b>
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/rabbit_watermelon/output3.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              <b style="color:red;">rabbit</b> &rarr; <b style="color:blue;">dog</b> <br>
+              <b style="color:red;">watermelon</b> &rarr; <b style="color:blue;">basketball</b> <br>
+              <b style="color:red;">table</b> &rarr; <b style="color:blue;">sand</b> <br>
+              &plus; <b style="color:green;">at sunrise</b>
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/rabbit_watermelon/output4.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              <b style="color:red;">rabbit</b> &rarr; <b style="color:blue;">dog</b> <br>
+              <b style="color:red;">watermelon</b> &rarr; <b style="color:blue;">basketball</b> <br>
+              &plus; <b style="color:green;">Cezanne painting</b>
+            </p>
+					</div>
+				</span>
+        <span>
+					<div class="marquee-item">
+            <img src="static/gifs/bird_forest/input.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              "A <b style="color:red;">bird</b> flying above <b style="color:red;">lake</b> in the <b style="color:red;">forest</b>."
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/bird_forest/output1.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              <b style="color:red;">bird</b> &rarr; <b style="color:blue;">blue bird</b>
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/bird_forest/output2.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              <b style="color:red;">bird</b> &rarr; <b style="color:blue;">dragonfly</b> <br>
+              <b style="color:red;">lake</b> &rarr; <b style="color:blue;">emerald lake</b>
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/bird_forest/output3.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              <b style="color:red;">bird</b> &rarr; <b style="color:blue;">crow</b> <br>
+              <b style="color:red;">lake</b> &rarr; <b style="color:blue;">desert</b> <br>
+              <b style="color:red;">forest</b> &rarr; <b style="color:blue;">forest on fire</b>
+            </p>
+					</div>
+					<div class="marquee-item">
+            <img src="static/gifs/bird_forest/output4.gif" alt="MY ALT TEXT"/>
+						<p class="caption-teaser">
+              &plus; <b style="color:green;">Ukiyo-e art</b>
+            </p>
+					</div>
+				</span>
+			</div>
+		</div>
+  </div>
+</div>
+</div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="is-max-desktop">
+  <div class="marquee-wrapper">
+    <div class="container">
+      <div class="marquee-block" style="height:330px;">
+        <div class="marquee-inner to-left">
+          <span>
+            <div class="marquee-item">
+              <img src="static/gifs/surfing/input.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                "A <b style="color:red;">man</b> is surfing a wave."
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/surfing/output1.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                <b style="color:red;">man</b> &rarr; <b style="color:blue;">Spider-man</b>
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/surfing/output2.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                &plus; <b style="color:green;">Cezanne painting</b>
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/skiing/input.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                "A <b style="color:red;">man</b> is skiing."
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/skiing/output1.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                <b style="color:red;">man</b> &rarr; <b style="color:blue;">Spider-man</b>
+              </p>
+            </div>
+          </span>
+          <span>
+            <div class="marquee-item">
+              <img src="static/gifs/dog_walking/input.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                "A <b style="color:red;">man</b> is walking a <b style="color:red;">dog</b> on the <b style="color:red;">road</b>."
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/dog_walking/output1.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                <b style="color:red;">man</b> &rarr; <b style="color:blue;">Iron Man</b> <br>
+                <b style="color:red;">dog</b> &rarr; <b style="color:blue;">sheep</b> <br>
+                <b style="color:red;">road</b> &rarr; <b style="color:blue;">lake</b>
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/dog_walking/output2.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                <b style="color:red;">man</b> &rarr; <b style="color:blue;">farmer</b> <br>
+                <b style="color:red;">dog</b> &rarr; <b style="color:blue;">goat</b> <br>
+                <b style="color:red;">road</b> &rarr; <b style="color:blue;">snow road</b>
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/dog_walking/output3.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                &plus; <b style="color:green;">Chinese painting style</b>
+              </p>
+            </div>
+            <div class="marquee-item">
+              <img src="static/gifs/dog_walking/output4.gif" alt="MY ALT TEXT"/>
+              <p class="caption-teaser">
+                &plus; <b style="color:green;">Van Gogh Starry night style</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we introduce a novel groundings guided video-to-video translation framework called <strong>Ground-A-Video</strong>.
+            Recent endeavors in video editing have showcased promising results in single-attribute editing or style transfer tasks, either by training T2V models on text-video data or adopting training-free methods.
+            However, when confronted with the complexities of multi-attribute editing scenarios, they exhibit shortcomings such as omitting or overlooking intended attribute changes, modifying the wrong elements of the input video, and failing to preserve regions of the input video that should remain intact.
+            Ground-A-Video attains temporally consistent multi-attribute editing of input videos in a training-free manner without aforementioned shortcomings.
+            Central to our method is the introduction of cross-frame gated attention which incorporates groundings information into the latent representations in a temporally consistent fashion, along with Modulated Cross-Attention and optical flow guided inverted latents smoothing.
+            Extensive experiments and applications demonstrate that Ground-A-Video's zero-shot capacity outperforms other baseline methods in terms of edit-accuracy and frame consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-justified">
+      <img class="center-img center" src="static/images/carousel3.jpg" width="100%">
+      <h2 class="subtitle">
+      Given an input video frames, we obtain grounding information using GLIP model.
+      Manually text-edited groundings and text prompt are directed to the Modulated Attention layers.
+      The input frames undergo individual DDIM inversion and null optimization,
+      followed by optical flow-based smoothing to form latent features.
+      The latents are separately fed into the inflated SD and ControlNet, 
+      where the latter takes an additional input of depth maps.
+      The sequence of attentions in inflated SD's transformer blocks includes Spatial-Temporal Attention, Cross-Frame Gated Attention, and Modulated Cross Attention,
+      whereas inflated ControlNet's blocks do not include Cross-Frame Gated Attention.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+<!-- Paper poster 
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section>
+End paper poster -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{anonymous2023groundvideo,
+        title={Ground-A-Video: Zero-shot Gounded Video Editing using Text-to-image Diffusion Models}, 
+        author={anonymous},
+        year={2023},
+        journal={arXiv:anonymous},
+}</code></pre>
+    </div>
+  </section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/vinthony/project-page-template">modification version</a> of 
+            <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> 
+            from <a href="https://github.com/vinthony">vinthony</a>, licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
