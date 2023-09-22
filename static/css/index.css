@@ -4,6 +4,13 @@
        url('ComicMono.ttf') format('woff');
 }
 
+.tldr{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
 body {
   font-family: 'Noto Sans', sans-serif;
 }
@@ -142,7 +149,7 @@ body{
     /*background-color: rgb(43, 60, 197);*/
     /*color: rgb(0, 79, 241);*/
     /*color: white;*/
-    border-top:5px solid rgb(255, 180, 240);
+    border-top:5px solid rgb(180, 255, 224);
     /*border-bottom:5px solid orange;*/
 }
 b{
@@ -199,6 +206,13 @@ a:after{
   /*background-color: rgba(225, 166, 121, 0.5);*/
   /* background-color: rgba(255,211,30, 0.4); */
 }
+
+.highlight{
+  transition:top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+  background-color: rgba(225, 166, 121, 0.5);
+  background-color: rgba(255,211,30, 0.4);
+}
+
 .emojilink:after{
   background-color: rgba(255,211,30, 0.0) 
   /*rgba(225, 166, 121, 0.0);*/
@@ -320,4 +334,9 @@ a:hover:after{
   color: #130707;
   font-size: 16px !important;
   vertical-align: middle !important;
+}
+
+table {
+  border-collapse:separate; 
+  border-spacing: 0 1.5em;
 }
