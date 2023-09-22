@@ -128,6 +128,10 @@
 
 <section class="hero teaser">
 <div class="is-max-desktop">
+<div class="tldr">
+  TL;DR: Edit <span class="tldr highlight">Multiple Attributes</span> of your video via <span class="tldr highlight">Stable Diffusion</span>
+   and Spatially-Continuous &amp; -Discrete Conditions, <span class="tldr highlight">without Any Training</span>.
+</div>  
 <div class="marquee-wrapper">
 	<div class="container">
 		<div class="marquee-block">
@@ -340,45 +344,142 @@
 </section>
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
 
+
+<br>
+<br>
+
+<div id="results">
+  <h2 class="tldr" style="font-size: 28px;">Comparison with state-of-the-art approaches</h2>
+  <div>
+    <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
+      "A cat is roaring." 	&#8680; "A dog is roaring on the beach under the sky."
+    </span>
+    <br>
+      <table style="width: 35%;margin-left:auto;margin-right:auto; text-align: center;">
+          <tbody>
+            <tr>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/cat_flower/dog_beach_sky/input.mp4">
+                  </video>
+                  <div>
+                      Input Video
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/cat_flower/dog_beach_sky/Tune-A-Video-Control/vid.mp4">
+                  </video>
+                  <div>
+                      Tune A Video w/ ControlNet
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/cat_flower/dog_beach_sky/Control-A-Video/vid.mp4">
+                  </video>
+                  <div>
+                      Control A Video
+                  </div>
+              </th>
+            </tr>
+            <tr>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/cat_flower/dog_beach_sky/ControlVideo/vid.mp4">
+                    </video>
+                    <div>
+                        ControlVideo
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/cat_flower/dog_beach_sky/Gen-1/vid.mp4">
+                    </video>
+                    <div>
+                        Gen-1
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/cat_flower/dog_beach_sky/Ours/vid.mp4">
+                    </video>
+                    <div class="tldr highlight" style="font-size: 16px;">
+                        Ground A Video (ours)
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+      </table>
+    <br><br>
+
+    <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
+      "A squirrel eating a carrot." 	&#8680; "A fennec fox eating a sausage on the dune, in desert."
+    </span>
+    <br>
+      <table style="width: 35%;margin-left:auto;margin-right:auto; text-align: center;">
+          <tbody>
+            <tr>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/input.mp4">
+                  </video>
+                  <div>
+                      Input Video
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Tune-A-Video-Control/vid.mp4">
+                  </video>
+                  <div>
+                      Tune A Video w/ ControlNet
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Control-A-Video/vid.mp4">
+                  </video>
+                  <div>
+                      Control A Video
+                  </div>
+              </th>
+            </tr>
+            <tr>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/ControlVideo/vid.mp4">
+                    </video>
+                    <div>
+                        ControlVideo
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Gen-1/vid.mp4">
+                    </video>
+                    <div>
+                        Gen-1
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Ours/vid.mp4">
+                    </video>
+                    <div class="tldr highlight" style="font-size: 16px;">
+                        Ground A Video (ours)
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+      </table>
+    <br><br>
+
+  </div>
+<br>
+<br>
+</div>
 
 <!-- Video carousel -->
 <section class="hero is-small">
@@ -396,14 +497,7 @@
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
+            <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
