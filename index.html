@@ -331,6 +331,9 @@
   <div class="container is-max-desktop">
     <div class="hero-body has-text-justified">
       <br>
+      <br>
+      <h2 class="title is-3">Method</h2>
+      <br>
       <img class="center-img center" src="static/images/overview.png" width="100%">
       <br>
       <h3 class="subtitle" style="font-size: 18px;">
@@ -342,6 +345,8 @@
       while the latter taking an additional input of depth maps.
       Additionally, the target groundings are directed to the <strong>Cross-Frame Gated Attentions</strong>, 
       while the target prompt conditioning and frame-independently optimized null-embeddings are channeled into the <strong>Modulated Cross Attentions</strong>.
+      Finally, if a binary mask, the intersection of common outer spaces of target bounding boxes, exists, it is utilized for inpainting before each denoising step.
+      Usage of this optional binary mask helps preserve regions that are not the target of editing.
       </h3>
     </div>
   </div>
@@ -353,14 +358,15 @@
 <!-- Comparison with other methods  -->
 <br>
 <br>
-<div id="results">
+<div id="results" style='background-color: rgb(243, 242, 242)'>
+  <br>
   <h2 class="tldr" style="font-size: 28px;">Comparison with state-of-the-art approaches</h2>
   <div>
     <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
       "A cat is roaring." 	&#8680; "A <u>dog</u> is roaring <u>on the beach</u>, <u>under the sky</u>."
     </span>
     <br>
-      <table style="width: 35%;margin-left:auto;margin-right:auto; text-align: center;">
+      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
           <tbody>
             <tr>
               <th>
@@ -422,7 +428,7 @@
       "A squirrel eating a carrot." 	&#8680; "A <u>fennec fox</u> eating a <u>sausage</u> <u>on the dune</u>, <u>in desert</u>."
     </span>
     <br>
-      <table style="width: 35%;margin-left:auto;margin-right:auto; text-align: center;">
+      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
           <tbody>
             <tr>
               <th>
@@ -484,7 +490,7 @@
       "Brown bear walking on the rock, against a wall." 	&#8680; "<u>Pink bear</u> walking on <u>snowy alpine</u>, <u>next to lake</u>, against a <u>blue wall</u>."
     </span>
     <br>
-      <table style="width: 35%;margin-left:auto;margin-right:auto; text-align: center;">
+      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
           <tbody>
             <tr>
               <th>
@@ -540,6 +546,156 @@
             </tr>
         </tbody>
       </table>
+    <br><br>
+
+    <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
+      "A silver jeep is driving down a curvy road in the countryside." 	&#8680; "An <u>orange jeep</u> is driving down a curvy road in the countryside, <u>fireworks on the sky</u>."
+    </span>
+    <br>
+      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
+          <tbody>
+            <tr>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/car_turn/input.mp4">
+                  </video>
+                  <div>
+                      Input Video
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/car_turn/Tune-A-Video-Control/vid.mp4">
+                  </video>
+                  <div>
+                      Tune A Video w/ ControlNet
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/comparisons/car_turn/Control-A-Video/vid.mp4">
+                  </video>
+                  <div>
+                      Control A Video
+                  </div>
+              </th>
+            </tr>
+            <tr>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/car_turn/Controlvideo/vid.mp4">
+                    </video>
+                    <div>
+                        ControlVideo
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/car_turn/Gen-1/vid.mp4">
+                    </video>
+                    <div>
+                        Gen-1
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/comparisons/car_turn/Ours/vid.mp4">
+                    </video>
+                    <div class="tldr highlight" style="font-size: 16px;">
+                        Ground A Video (ours)
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+      </table>
+      <br><br>
+    
+      <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
+        "A bird flying above lake in the forest." 	&#8680; "A <u>crow</u> flying above <u>desert</u> in the <u>forest on fire</u>."
+      </span>
+      <br>
+        <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
+            <tbody>
+              <tr>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/more-comparisons/bird_forest/input.mp4">
+                    </video>
+                    <div>
+                        Input Video
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/more-comparisons/bird_forest/Tune-A-Video-Control/vid.mp4">
+                    </video>
+                    <div>
+                        Tune A Video w/ ControlNet
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/more-comparisons/bird_forest/Control-A-Video/vid.mp4">
+                    </video>
+                    <div>
+                        Control A Video
+                    </div>
+                </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/more-comparisons/bird_forest/Ours/vid.mp4">
+                    </video>
+                    <div class="tldr highlight" style="font-size: 16px;">
+                        Ground A Video (ours)
+                    </div>
+                </th>
+              </tr>
+          </tbody>
+        </table>
+        <br><br>
+
+        <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
+          "A man is walking a dog on the road." 	&#8680; "<u>Iron Man</u> is walking a <u>sheep</u> on the <u>lake</u>."
+        </span>
+        <br>
+          <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
+              <tbody>
+                <tr>
+                  <th>
+                      <video autoplay="" muted="" loop="" width="200">
+                          <source src="static/more-comparisons/dog_walking/input.mp4">
+                      </video>
+                      <div>
+                          Input Video
+                      </div>
+                  </th>
+                  <th>
+                      <video autoplay="" muted="" loop="" width="200">
+                          <source src="static/more-comparisons/dog_walking/Gen-1/vid.mp4">
+                      </video>
+                      <div>
+                          Gen-1
+                      </div>
+                  </th>
+                  <th>
+                      <video autoplay="" muted="" loop="" width="200">
+                          <source src="static/more-comparisons/dog_walking/Control-A-Video/vid.mp4">
+                      </video>
+                      <div>
+                          Control A Video
+                      </div>
+                  </th>
+                  <th>
+                      <video autoplay="" muted="" loop="" width="200">
+                          <source src="static/more-comparisons/dog_walking/Ours/vid.mp4">
+                      </video>
+                      <div class="tldr highlight" style="font-size: 16px;">
+                          Ground A Video (ours)
+                      </div>
+                  </th>
+                </tr>
+            </tbody>
+          </table>
   </div>
 <br>
 <br>
